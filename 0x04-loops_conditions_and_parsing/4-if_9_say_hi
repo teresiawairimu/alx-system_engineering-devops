@@ -3,6 +3,7 @@
 counter=1
 while [ $counter -lt 11 ]; do
 	if [ $counter -eq 9 ]; then
+		echo "Best School"
 		echo "Hi"
 	else
 		echo "Best School"
