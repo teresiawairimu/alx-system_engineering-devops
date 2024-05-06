@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script displays "Best School" 10 times, 9th iteration, "Hi" is displayed
+#This script displays "Best School" 10 times, 9th iteration, "Hi" is displayed
 counter=1
 while [ $counter -le 10 ]; do
 	if [ $counter -eq 9 ]; then
