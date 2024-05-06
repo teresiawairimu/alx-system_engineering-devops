@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#This script displays content of current directory
+list=(*)
+for i in "${list[@]}"; do
+	if [ -f "$i" ]; then
+		echo "${i#*-}"
+	fi
+done
