@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This script "to-infinity-and-beyond" indefinitely
+trap_sig() {
+        echo "I am invincible!!!"
+}
+trap 'trap_sig' SIGTERM
+while true; do
+	echo "To infinity and beyond"
+	sleep 2
+done
