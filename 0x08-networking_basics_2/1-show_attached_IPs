@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+# This script displays all active IPv4 IPs on the machine it's executed on
+ip_address=$(ip addr show | grep -oP '(?<=inet )[\d.]+(?=/\d+)')
+for i in $ip_address; do
+    echo "$i"
+done
