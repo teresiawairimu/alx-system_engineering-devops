@@ -4,16 +4,19 @@ if [ "$(id -u)" != "0" ]; then
 	echo "This script must be run as root" 1>&2
 	exit 1
 fi
-echo "Active Internet connections (only servers)"
-echo ""
-echo "Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name"
+#echo "Active Internet connections (only servers)"
+#echo ""
+#echo "Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name"
 
-netstat -ntlp | awk 'NR>2 {printf "%-10s %-6s %-1s %-23s %-23s %-11s %-14s\n", $1, $2, $3, $4, $5, $6, $7}'
+#netstat -ntlp | awk 'NR>2 {printf "%-10s %-6s %-1s %-23s %-23s %-11s %-14s\n", $1, $2, $3, $4, $5, $6, $7}'
 
-echo ""
+#echo ""
 
-echo "Active UNIX domain sockets (only servers)"
-echo ""
-echo "Proto RefCnt Flags       Type       State         I-Node   PID/Program name    Path"
+#echo "Active UNIX domain sockets (only servers)"
+#echo ""
+#echo "Proto RefCnt Flags       Type       State         I-Node   PID/Program name    Path"
 
-netstat -xlp | awk 'NR>2 {printf "%-5s %-6s %-6s %-22s %-22s %-11s %-11s %-s\n", $1, $2, $3, $4, $5, $6, $7, $8}'
+#netstat -lxp | awk 'NR>2 {printf "%-5s %-6s %-6s %-22s %-22s %-11s %-11s %-s\n", $1, $2, $3, $4, $5, $6, $7, $8}'
+#netstat -lxp | awk 'NR>2 {printf "%-5s %-6s %-6s %-22s %-22s %-11s %-11s %-s\n", $1, $2, $3, $4, $5, $6, $7, $8}'
+#netstat -lxp | awk 'NR>2 {printf "%-5s %-6s %-22s %-22s %-11s %-11s %-s\n", $1, $2, $4, $5, $6, $7, $8}'
+netstat -l
