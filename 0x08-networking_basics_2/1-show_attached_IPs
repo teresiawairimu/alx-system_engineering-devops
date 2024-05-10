@@ -4,4 +4,7 @@
 #for i in $ip_address; do
    # echo "$i"
 #done
-ip -4 -o addr show | awk '{print $4}' | cut -d "/" -f 1
+#ip -4 -o addr show | awk '{print $4}' | cut -d "/" -f 1
+#ip addr show | awk '/inet / {match($0, /inet ([0-9.]+)/, ip); print ip[1]}'
+#ip -4 -o addr show | awk '{print $4"$"}' | cut -d "/" -f 1
+ip -4 -o addr show | awk '{print $4}' | cut -d "/" -f 1 | sed 's/$/$/'
