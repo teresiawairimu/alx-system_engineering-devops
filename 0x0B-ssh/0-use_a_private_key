@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Uses ssh to connect to the server using the private key
+SERVER_IP="3.84.161.130"
+PRIVATE_KEY="~/.ssh/school"
+ssh -i $PRIVATE_KEY ubuntu@$SERVER_IP
