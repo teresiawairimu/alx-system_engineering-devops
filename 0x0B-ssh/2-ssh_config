@@ -1,5 +1,5 @@
 Host 478586-web-01
    HostName 3.84.161.130
    User ubuntu
-   IdentifyFile ~/.ssh/school
+   IdentityFile ~/.ssh/school
    PasswordAuthentication no
