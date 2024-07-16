@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# Install nginx, configure 301 redirect pange and a custom 404 page
+sudo apt-get update -y
+sudo apt-get install nginx -y
+
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+
+sudo tee /etc/nginx/sites-available/default <<EOF
+server {
+    listen 80 default server;
+    listen [::]:80 default_server;
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+    server_name_;
+    
+    location /redirect_me {
+        return 301 http://www.example.com;
+    }
+
+    error_page 404 /404.html;
+    location = /404.html {
+        internal;
+    }
+}
+EOF
+sudo service nginx restart
+
+echo "Nginx has installed and configured 404 page"
