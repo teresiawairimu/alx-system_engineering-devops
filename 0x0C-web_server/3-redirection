@@ -5,9 +5,9 @@ sudo apt-get install nginx -y
 
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
-sudo sevice nginx start
+sudo service nginx start
 
-sudo sed -i 's/listen 80 478586-web-01;/listen 80;/g' /etc/nginx/sites-available/default
+sudo sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
 
 sudo sed -i '/location \/ {/a \\n location /redirect_me {\n return 301 http://www.example.com;\n }' /etc/nginx/sites-available/default
 
