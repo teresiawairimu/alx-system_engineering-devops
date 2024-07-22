@@ -1,3 +1,4 @@
+#configure server with Puppet
 class { 'nginx':
   package_ensure => 'present',
   service_ensure => 'running',
