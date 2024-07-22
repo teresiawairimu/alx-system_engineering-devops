@@ -39,4 +39,4 @@ backend http_back
 EOF
 
 
-sudo ervice haproxy restart
+sudo service haproxy restart
