@@ -8,5 +8,3 @@ CURRENT_DATE=$(date +'%d-%m-%Y')
 mysqldump -u root -p"$MYSQL_PASSWORD" tyrell_corp > backup.sql
 
 tar -czvf "$CURRENT_DATE.tar.gz" backup.sql
-
-echo "Backup and compression completed successfully"
