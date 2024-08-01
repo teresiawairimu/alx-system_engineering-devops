@@ -3,9 +3,9 @@
 To derive the information about employee's TODO list progress
 The information should be exported in csv format
 """
+import csv
 import requests
 import sys
-import csv
 
 
 def get_employee_todo_progress(employee_id):
@@ -25,8 +25,8 @@ def get_employee_todo_progress(employee_id):
         return
 
     employee_data = employee_response.json()
-    employee_name = employee_data.get("name")
-    employee_id = employee_data.get("id")
+    employee_name = employee_data.get("username")
+    user_id = employee_data.get("id")
 
     todos_url = (
         f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos"
@@ -49,14 +49,14 @@ def get_employee_todo_progress(employee_id):
         print(f"\t {task.get('title')}")
         """
 
-    csv_filename = f"{employee_id}.csv"
+    csv_filename = f"{user_id}.csv"
     with open(
             csv_filename, mode='w', newline='', encoding='utf-8'
             ) as csv_file:
         csv_writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
         for task in todos_data:
             csv_writer.writerow(
-                    [employee_id, employee_name, str(
+                    [user_id, employee_name, str(
                         task.get("completed")
                         ), task.get("title")]
                     )
