@@ -42,11 +42,12 @@ def get_employee_todo_progress(employee_id):
 
     number_of_done_tasks = len(done_tasks)
 
-    print(
+    """print(
         f"Employee {employee_name} is done with tasks("
         f"{number_of_done_tasks}/{total_tasks}):")
     for task in done_tasks:
         print(f"\t {task.get('title')}")
+        """
 
     csv_filename = f"{employee_id}.csv"
     with open(
