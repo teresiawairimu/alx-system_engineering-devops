@@ -24,7 +24,7 @@ def get_employee_todo_progress(employee_id):
         print("User not found")
         return
 
-    user_data = user_response.json()
+    user_data = employee_response.json()
     user_name = user_data.get("username")
     user_id = user_data.get("id")
 
@@ -42,7 +42,7 @@ def get_employee_todo_progress(employee_id):
             {
                 "task": task.get("title"),
                 "completed": task.get("completed"),
-                "username": user_username
+                "username": user_name
             }
             for task in todos_data
         ]
@@ -50,7 +50,6 @@ def get_employee_todo_progress(employee_id):
     json_filename = f"{user_id}.json"
     with open(json_filename, mode='w', encoding='utf-8') as json_file:
         json.dump(json_data, json_file)
-
 
 
 if __name__ == "__main__":
