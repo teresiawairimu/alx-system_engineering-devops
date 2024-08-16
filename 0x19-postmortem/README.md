@@ -52,3 +52,5 @@ Tasks:
 2. Conduct a code review of all critical WordPress configuration files to identify and correct any other potential issues.
 3. Add a pre-deployment script that checks for common typos and errors in WordPress files before deployment.
 4. Enhance monitoring to alert on specific php errors that could lead to a 500 error, allowing for quicker detection and resolution
+
+![Oops Image](oops-1444975_640.jpg)
