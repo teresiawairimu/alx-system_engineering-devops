@@ -24,6 +24,7 @@ Timeline
 08:30PM EAT: The site was fully restored, and the incident was resolved.
 
 Root Cause and Resolution
+
 The 500 error was caused by a typo in the 'wp-settings.php' file, where teh 'require_once' statement attempted to include a non-existent file with the '.phpp' extension. This typo caused a fatal PHP error, resulting in the Apache server returning a 500 error.
 The issue was resolved by running a 'sed' command to correct the extension from '.php'. This command was incorporated into a Puppet manifest to automate the fix and prevent future occurrences of similar issues. The successful execution of the Puppet script ensured that the typo was corrected and normal functionality was restored.
 
@@ -31,7 +32,8 @@ Corrective and Preventative Measures
 Improvements/Fixes:
 1. Implement a review process for critical configuration files to catch typos and errors before they go live
 2. Use automation tools like Puppet to apply fixes consistently across environments and prevent manual errors.
-3. Regularly activate and monitor WordPress debugging to catch potential issuesearly.
+3. Regularly activate and monitor WordPress debugging to catch potential issues early.
+
 Tasks:
 1. Deploy the Puppet Manifest to automatically correct the typo if it appears again.
 2. Conduct a code review of all critical WordPress configuration files to identify and correct any other potential issues.
