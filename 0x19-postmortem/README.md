@@ -1,10 +1,14 @@
 Postmortem: Apache 500 Error Due to Typo in WordPress Configuration
+
 Issue Summary
 1. Duration of Outage: 16-08-2024, 08:10PM - 08:30PM EAT (25 minutes)
 2. Impact: The Apache Web server returned HTTP 500 Internal Server Error for all requests, causing the primary WordPress site to be inaccessible 100% of users were unable to access the site during the outage.
 3.  Root Cause: The root cause was a typo in the 'wp-settings.php' file where a file extension was mistakenly written as '.phpp' instead of '.php'. This caused the 'require_once' function to fail, leading to the PHP script crashing and returning a 500 error.
+
 Timeline
+
 08:10PM EAT: Monitoring systems detected an increase in HTTP 500 errors from the Apache server, trigerring an alert.
+
 08:13PM EAT: The on-call engineer received the alert and immediately began investigating by checking the Apache error logs, which pointed to a PHP issue.
 08:15PM EAT: Upon activating WordPress debugging mode by modifying the 'wp-config.php' file, the engineer identified the exact error in the 'wp-settings.php' file, specifically a typo that caused a php warning.
 08:17PM EAT: The engineer fixed the typo using a 'sed' command to replace '.phpp' with '.php' in the 'wp-settings.php' file.
