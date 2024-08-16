@@ -1,8 +1,8 @@
 Postmortem: Apache 500 Error Due to Typo in WordPress Configuration
 Issue Summary
-  . Duration of Outage: 16-08-2024, 08:10PM - 08:30PM EAT (25 minutes)
-  . Impact: The Apache Web server returned HTTP 500 Internal Server Error for all requests, causing teh primary WordPress site to be inaccessible. 100% of users were unable to access teh site during the outage.
-  . Root Cause: The root cause was a typo in the 'wp-settings.php' file where a file extension was mistakenly written as '.phpp' instead of '.php'. This caused the 'require_once' function to fail, leading to the PHP script crashing and returning a 500 error.
+1. Duration of Outage: 16-08-2024, 08:10PM - 08:30PM EAT (25 minutes)
+2. Impact: The Apache Web server returned HTTP 500 Internal Server Error for all requests, causing the primary WordPress site to be inaccessible 100% of users were unable to access the site during the outage.
+3.  Root Cause: The root cause was a typo in the 'wp-settings.php' file where a file extension was mistakenly written as '.phpp' instead of '.php'. This caused the 'require_once' function to fail, leading to the PHP script crashing and returning a 500 error.
 Timeline
 08:10PM EAT: Monitoring systems detected an increase in HTTP 500 errors from the Apache server, trigerring an alert.
 08:13PM EAT: The on-call engineer received the alert and immediately began investigating by checking the Apache error logs, which pointed to a PHP issue.
@@ -17,9 +17,9 @@ The 500 error was caused by a typo in the 'wp-settings.php' file, where teh 'req
 The issue was resolved by running a 'sed' command to correct the extension from '.php'. This command was incorporated into a Puppet manifest to automate the fix and prevent future occurrences of similar issues. The successful execution of the Puppet script ensured that the typo was corrected and normal functionality was restored.
 Corrective and Preventative Measures
 Improvements/Fixes:
-  . Implement a review process for critical configuration files to catch typos and errors before they go live
-  . Use automation tools like Puppet to apply fixes consistently across environments and prevent manual errors.
-  . Regularly activate and monitor WordPress debugging to catch potential issuesearly.
+1. Implement a review process for critical configuration files to catch typos and errors before they go live
+2. Use automation tools like Puppet to apply fixes consistently across environments and prevent manual errors.
+3. Regularly activate and monitor WordPress debugging to catch potential issuesearly.
 Tasks:
 1. Deploy the Puppet Manifest to automatically correct the typo if it appears again.
 2. Conduct a code review of all critical WordPress configuration files to identify and correct any other potential issues.
